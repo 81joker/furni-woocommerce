@@ -1,9 +1,4 @@
-/*
-* Template Name: UntreeStore
-* Template Author: Untree.co
-* Author URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/
+
 body {
   background-color: #f8b810
 }
@@ -18,19 +13,20 @@ body {
   line-height: 28px;
   color: #6a6a6a;
   font-size: 14px;
-  background-color: #eff2f1; }
+  background-color: #eff2f1 !important; 
+}
 
-a {
+a , .title-team{
   text-decoration: none;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
   color: #2f2f2f;
   text-decoration: underline; }
-  a:hover {
+  a:hover , .title-team:hover {
     color: #2f2f2f;
     text-decoration: none; }
-  a.more {
+  a.more  {
     font-weight: 600; }
 
 .custom-navbar {

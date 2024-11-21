@@ -38,7 +38,11 @@
 							Blog
 							</a>
 						</li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li class="nav-item <?php if (is_page('contact') || wp_get_post_parent_id(0) == 16) echo 'active'; ?>">
+							<a class="nav-link " href="<?php echo site_url('/contact'); ?>">
+							Kontant
+							</a>
+						</li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">

@@ -1,6 +1,7 @@
 <?php
 
 // require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/widgets.php';
 // <link href="css/bootstrap.min.css" rel="stylesheet">
 // <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 // <link href="css/tiny-slider.css" rel="stylesheet">
@@ -137,8 +138,8 @@ add_action( 'wp_enqueue_scripts', 'furni_load_scripts' );
 //     );
 // }
 
-// if ( ! function_exists( 'wp_body_open' ) ){
-// 	function wp_body_open() {
-// 		do_action( 'wp_body_open' );
-// 	}
-// }
+if ( ! function_exists( 'wp_body_open' ) ){
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+}
