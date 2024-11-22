@@ -26,7 +26,7 @@ function furni_load_scripts(){
 }
 add_action( 'wp_enqueue_scripts', 'furni_load_scripts' );
 
-// function furni_config(){
+function furni_config(){
 
 //     $textdomain = 'wp-devs';
 //     load_theme_textdomain( $textdomain, get_template_directory() . '/languages/' );
@@ -43,7 +43,7 @@ add_action( 'wp_enqueue_scripts', 'furni_load_scripts' );
 //         'width'     => 1920
 //     );
 //     add_theme_support( 'custom-header', $args );
-//     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-thumbnails' );
 //     add_theme_support( 'custom-logo', array(
 //         'width' => 200,
 //         'height'    => 110,
@@ -72,8 +72,8 @@ add_action( 'wp_enqueue_scripts', 'furni_load_scripts' );
 //     //     )
 //     // ) );
 //     // add_theme_support( 'disable-custom-colors' );
-// }
-// add_action( 'after_setup_theme', 'furni_config', 0 );
+}
+add_action( 'after_setup_theme', 'furni_config', 0 );
 
 // function furni_register_block_styles(){
 //     wp_register_style( 'furni-block-style', get_template_directory_uri() . '/block-style.css' );

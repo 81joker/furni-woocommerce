@@ -9,6 +9,7 @@
 <?php echo do_shortcode("[mv_team/]"); ?>
 
 <div class="services-item">
+
     <?php
     if (is_active_sidebar('sidebar-blog')) {
         dynamic_sidebar('sidebar-blog');
