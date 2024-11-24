@@ -1,6 +1,6 @@
 const { registerBlockType } = wp.blocks;
 const { RichText, MediaUpload, InspectorControls } = wp.blockEditor;
-const { IconButton, PanelBody, SelectControl } = wp.components;
+const { IconButton, PanelBody } = wp.components;
 
 registerBlockType('why-choose-us/why-choose-us', {
     title: 'Why Choose Us',
@@ -13,10 +13,10 @@ registerBlockType('why-choose-us/why-choose-us', {
         features: {
             type: 'array',
             default: [
-                { icon: pluginUrl.url + 'icons/truck.svg', title: 'Fast & Free Shipping', description: '' },
-                { icon: pluginUrl.url + 'icons/bag.svg', title: 'Easy to Shop', description: '' },
-                { icon: pluginUrl.url + 'icons/support.svg', title: '24/7 Support', description: '' },
-                { icon: pluginUrl.url + 'icons/return.svg', title: 'Hassle Free Returns', description: '' }
+                { icon: null, title: 'Fast & Free Shipping', description: '' },
+                { icon: null, title: 'Easy to Shop', description: '' },
+                { icon: null, title: '24/7 Support', description: '' },
+                { icon: null, title: 'Hassle Free Returns', description: '' }
             ]
         }
     },
@@ -63,17 +63,15 @@ registerBlockType('why-choose-us/why-choose-us', {
                         <div className="col-6 col-md-6" key={index}>
                             <div className="feature">
                                 <div className="icon">
-                                    <SelectControl
-                                        label="Select Icon"
+                                    <MediaUpload
+                                        onSelect={(media) => onChangeFeature(index, 'icon', media.url)}
+                                        type="image"
                                         value={feature.icon}
-                                        options={[
-                                            { label: 'Bag', value: pluginUrl.url + 'icons/bag.svg' },
-                                            { label: 'Support', value: pluginUrl.url + 'icons/support.svg' },
-                                            { label: 'Truck', value: pluginUrl.url + 'icons/truck.svg' },
-                                            { label: 'Return', value: pluginUrl.url + 'icons/return.svg' },
-                                            { label: 'Edit', value: pluginUrl.url + 'icons/edit.svg' },
-                                        ]}
-                                        onChange={(value) => onChangeFeature(index, 'icon', value)}
+                                        render={({ open }) => (
+                                            <IconButton onClick={open} icon="upload" isPrimary>
+                                                Choose Icon
+                                            </IconButton>
+                                        )}
                                     />
                                 </div>
                                 <RichText
@@ -112,7 +110,7 @@ registerBlockType('why-choose-us/why-choose-us', {
                                     <div className="col-6 col-md-6" key={index}>
                                         <div className="feature">
                                             <div className="icon">
-                                                {feature.icon && <img src={feature.icon} alt={feature.title} className="imf-fluid" />}
+                                                {feature.icon && <img src={feature.icon} alt="Feature Icon" className="imf-fluid" />}
                                             </div>
                                             <h3>{feature.title}</h3>
                                             <p>{feature.description}</p>
