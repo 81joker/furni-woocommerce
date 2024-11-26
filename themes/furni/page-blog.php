@@ -5,52 +5,24 @@
  */
 ?>
 <?php get_header(); ?>
-
 <?php 
-while(have_posts()) {
+while(have_posts()) :
     the_post();
+    $theParent = wp_get_post_parent_id(get_the_ID());
+    if ($theParent) {
+      $findChildrenOf = $theParent;
+    } else {
+      $findChildrenOf = get_the_ID();
+    }
+
+    // wp_list_pages(array(
+    //   'title_li' => NULL,
+    //   'child_of' => $findChildrenOf,
+    //   'sort_column' => 'menu_order'
+    // ));
      ?>
-    <div class="container container--narrow page-section position-relative"> 
-    <?php
-      // $theParent =106;
-      $theParent = wp_get_post_parent_id(get_the_ID());
-      if ($theParent) { ?>
-        <div class="metabox metabox--position-up metabox--with-home-link">
-      <p><a class="metabox__blog-home-link" href="<?php echo get_permalink($theParent); ?>"><i class="fa fa-home" aria-hidden="true"></i> Back to <?php echo get_the_title($theParent); ?></a> <span class="metabox__main"><?php the_title(); ?></span></p>
-    </div>
-      <?php }
-    ?>
-  </div>
+  <?php if (!$theParent) :?>
     <?php 
-    $testArray = get_pages(array(
-      'child_of' => get_the_ID()
-    ));
-
-    if ($theParent or $testArray) { ?>
-    <div class="container py-5"> 
-    <div class="page-links">
-      <h2 class="page-links__title"><a href="<?php echo get_permalink($theParent); ?>"><?php echo get_the_title($theParent); ?></a></h2>
-      <ul class="min-list">
-        <?php
-          if ($theParent) {
-            $findChildrenOf = $theParent;
-          } else {
-            $findChildrenOf = get_the_ID();
-          }
-
-          wp_list_pages(array(
-            'title_li' => NULL,
-            'child_of' => $findChildrenOf,
-            'sort_column' => 'menu_order'
-          ));
-        ?>
-      </ul>
-    </div>
-    <?php } ?>
-<!-- Start Content Parent  -->
- <?php
- if (!$theParent) {?>
-  <?php 
     // Fetch the child pages
     $childPages = get_pages(array(
       'child_of' => $findChildrenOf, 
@@ -59,40 +31,49 @@ while(have_posts()) {
     ));
    ?>
 
-	<!-- Start Blog Section -->
-	<div class="blog-section">
+
+<!-- Start Blog Section -->
+<?php if ($childPages): ?>
+		<div class="blog-section">
 			<div class="container">
 				<div class="row">
+        <?php
+        foreach ($childPages as $childPage) :
+          $thumbnail_url = get_the_post_thumbnail($childPage->ID);
+          $post = get_post($childPage->ID);
+          $post_date = get_the_date('M j, Y', $childPage->ID);
+          ?>
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="<?php echo get_theme_file_uri('images/post-1.jpg') ?>" alt="Image" class="img-fluid"></a>
+							<a href="<?php echo get_permalink($childPage->ID); ?>" class="post-thumbnail">
+                <?php echo  $thumbnail_url ?>
+                <!-- <img src="images/post-1.jpg" alt="Image" class="img-fluid"></a> -->
 							<div class="post-content-entry">
-								<h3><a href="#">First Time Home Owner Ideas</a></h3>
+								<h3><a href="<?php echo get_permalink($childPage->ID); ?>">
+                <?php echo get_the_title($childPage->ID); ?>
+                </a></h3>
 								<div class="meta">
-									<span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
+									<span>by <a href="<?php echo get_permalink($childPage->ID); ?>"><?php echo get_the_author($childPage->ID) ?></a></span> <span>on <a href="#"><?php echo $post_date;?></a></span>
 								</div>
 							</div>
 						</div>
 					</div>
+         <?php endforeach; ?>
+
+
 
 				</div>
 			</div>
 		</div>
+    <?php endif; ?>
 		<!-- End Blog Section -->	
 
- <?php
- }
-?>
-
-<!-- End Content Parent  -->
-    <div class="generic-content" style="min-height:300px">
-      <?php the_content(); ?>
-    </div>
-
-    </div>
-  <?php } ?>
+		
 
 
 
+
+<?php endif; ?>
+<?php endwhile; ?>
 <?php get_footer(); ?>
