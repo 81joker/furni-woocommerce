@@ -1,23 +1,16 @@
 <?php
 
-// require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/woocommerce/cart/cart.php';
+require get_template_directory() . '/inc/wc-modifications.php';
 require get_template_directory() . '/inc/widgets.php';
-// <link href="css/bootstrap.min.css" rel="stylesheet">
-// <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-// <link href="css/tiny-slider.css" rel="stylesheet">
-// <link href="css/style.css" rel="stylesheet">
 
-
-
-// <script src="js/bootstrap.bundle.min.js"></script>
-// <script src="js/tiny-slider.js"></script>
-// <script src="js/custom.js"></script>
 function furni_load_scripts(){
 
     wp_enqueue_style('furni-bootstrap', get_stylesheet_directory_uri() . "/css/bootstrap.min.css", null, 'all');
     wp_enqueue_style('furni-tiny-slider', get_stylesheet_directory_uri() . "/css/tiny-slider.css", null, 'all');
     wp_enqueue_style('furni-style', get_stylesheet_directory_uri() . "/css/style.css", null, 'all');
-    
+    wp_enqueue_style('furni-woocommerce', get_stylesheet_directory_uri() . "/css/woocommerce.css", null, 'all');
+
     wp_enqueue_script("furni-bootstrap-js", get_stylesheet_directory_uri() . "/js/bootstrap.bundle.min.js", ["jquery"], null, true);
     wp_enqueue_script("furni-tiny-slider-js", get_stylesheet_directory_uri() . "/js/tiny-slider.js", ["jquery"], null, true);
     wp_enqueue_script("furni-custom-js", get_stylesheet_directory_uri() . "/js/custom.js", ["jquery"], null, true);
@@ -30,7 +23,6 @@ function furni_config(){
 
 //     $textdomain = 'wp-devs';
 //     load_theme_textdomain( $textdomain, get_template_directory() . '/languages/' );
-
 //     register_nav_menus(
 //         array(
 //             'wp_devs_main_menu' => esc_html__( 'Main Menu', 'wp-devs' ),
@@ -143,3 +135,38 @@ if ( ! function_exists( 'wp_body_open' ) ){
 		do_action( 'wp_body_open' );
 	}
 }
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
+
+		// This theme is WooCommerce compatible, so we're adding support to WooCommerce
+		add_theme_support( 'woocommerce', array(
+			'thumbnail_image_width' => 255,
+			'single_image_width'    => 255,
+	        'product_grid'          => array(
+				'default_rows'    => 10,
+	            'min_rows'        => 4,
+	            'max_rows'        => 10,
+	            'default_columns' => 1,
+	            'min_columns'     => 1,
+	            'max_columns'     => 1,
+	            // 'default_rows'    => 4,
+	            // 'min_rows'        => 4,
+	            // 'max_rows'        => 4,
+	            // 'default_columns' => 1,
+	            // 'min_columns'     => 1,
+	            // 'max_columns'     => 4,
+	        ),
+		) );
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
+
+// add_filter('woocommerce_get_price_html', 'custom_price_format', 10, 2);
+// function custom_price_format($price, $product) {
+//     return '<span class="product-price bg-danger">' . $price . '</span>';
+// }
+// add_filter('woocommerce_get_part', 'custom_part_format', 10, 2);
+// function custom_part_format($price, $product) {
+//     return '<span class="product-price bg-danger">' . $price . '</span>';
+// }
+
