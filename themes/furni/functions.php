@@ -1,17 +1,9 @@
 <?php
 
+// require get_template_directory() . '/woocommerce/cart/cart.php';
 require get_template_directory() . '/inc/wc-modifications.php';
 require get_template_directory() . '/inc/widgets.php';
-// <link href="css/bootstrap.min.css" rel="stylesheet">
-// <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-// <link href="css/tiny-slider.css" rel="stylesheet">
-// <link href="css/style.css" rel="stylesheet">
 
-
-
-// <script src="js/bootstrap.bundle.min.js"></script>
-// <script src="js/tiny-slider.js"></script>
-// <script src="js/custom.js"></script>
 function furni_load_scripts(){
 
     wp_enqueue_style('furni-bootstrap', get_stylesheet_directory_uri() . "/css/bootstrap.min.css", null, 'all');

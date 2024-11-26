@@ -62,7 +62,35 @@ if (! function_exists('fancy_lab_wc_modify')) :
 			}
 		}
 		
+	// cart page
 	
+	// remove_action('woocommerce_before_cart' , 'woocommerce_cross_sell_display');
+
+// 	add_filter( 'woocommerce_locate_template', 'custom_override_woocommerce_template', 10, 3 );
+// function custom_override_woocommerce_template( $template, $template_name, $template_path ) {
+//     $basename = basename( $template );
+
+//     // Check if we're trying to load the cart template
+//     if ( 'cart.php' === $basename ) {
+//         // Return the path to your custom template
+//         return get_stylesheet_directory() . '/woocommerce/cart/cart.php';
+//     }
+
+//     return $template;
+// }
+// add_filter( 'woocommerce_locate_template', 'override_woocommerce_template', 10, 3 );
+// function override_woocommerce_template( $template, $template_name, $template_path ) {
+//     $basename = basename( $template );
+
+//     // Check if we're trying to load the cart template
+//     if ( 'cart.php' === $basename ) {
+//         // Return the path to your custom template
+//         return get_stylesheet_directory() . '/woocommerce/cart/cart.php';
+//     }
+
+//     return $template;
+// }
+
 
 		// add_action( 'woocommerce_before_main_content', 'furni_open_container_row' ,5 );
 		// function furni_open_container_row() {
