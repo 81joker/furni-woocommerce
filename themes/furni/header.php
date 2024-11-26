@@ -14,9 +14,10 @@
     <!-- <div id="preloder">
         <div class="loader"></div>
     </div> -->
-
+    
     <!-- Header Section Begin -->
     <?php get_template_part('parts/content', 'navbar'); ?>
     <!-- Header End -->
-
+    
     <?php get_template_part('parts/content', 'hero'); ?>
+    <div class="container"> 

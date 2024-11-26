@@ -1,0 +1,3 @@
+<?php
+echo "Custom cart template is being used.";
+// Rest of your custom cart template code...

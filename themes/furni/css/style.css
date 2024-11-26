@@ -203,6 +203,7 @@ a , .title-team{
 .product-section {
   padding: 7rem 0; }
   .product-section .product-item {
+  /* .product-section .product-item { */
     text-align: center;
     text-decoration: none;
     display: block;
