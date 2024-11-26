@@ -18,7 +18,7 @@ do_action('woocommerce_before_main_content');
 
 ?>
 
-<div class="untree_co-section product-section before-footer-section">
+<div class="untree_co-section product-section">
     <div class="container">
         <div class="row">
 
@@ -36,7 +36,7 @@ do_action('woocommerce_before_main_content');
                          */
                         do_action('woocommerce_shop_loop');
 
-                        wc_get_template_part('content', 'product-furni');
+                        wc_get_template_part('content', 'product');
                     }
                 }
 

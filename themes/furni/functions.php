@@ -151,12 +151,18 @@ if ( ! function_exists( 'wp_body_open' ) ){
 			'thumbnail_image_width' => 255,
 			'single_image_width'    => 255,
 	        'product_grid'          => array(
-	            'default_rows'    => 4,
+				'default_rows'    => 10,
 	            'min_rows'        => 4,
-	            'max_rows'        => 4,
+	            'max_rows'        => 10,
 	            'default_columns' => 1,
 	            'min_columns'     => 1,
-	            'max_columns'     => 4,
+	            'max_columns'     => 1,
+	            // 'default_rows'    => 4,
+	            // 'min_rows'        => 4,
+	            // 'max_rows'        => 4,
+	            // 'default_columns' => 1,
+	            // 'min_columns'     => 1,
+	            // 'max_columns'     => 4,
 	        ),
 		) );
 		add_theme_support( 'wc-product-gallery-zoom' );
