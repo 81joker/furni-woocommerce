@@ -1,0 +1,20 @@
+/* .woocommerce ul.products li.product {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px;
+}
+
+.product-price {
+    color: red;
+    font-weight: bold;
+} */
+
+.woocommerce nav.woocommerce-pagination ul li a, 
+.woocommerce nav.woocommerce-pagination ul li span{
+    color: black;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a, 
+.woocommerce nav.woocommerce-pagination ul li span {
+    padding: 12px;
+}

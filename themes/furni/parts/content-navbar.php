@@ -47,7 +47,8 @@
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 						<li><a class="nav-link" href="#"><img src="<?php echo get_theme_file_uri('images/user.svg') ?>"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="<?php echo get_theme_file_uri('images/cart.svg') ?>"></a></li>
+						<li><a class="nav-link" href="<?php echo esc_url( wc_get_cart_url() ); ?>"><img src="<?php echo get_theme_file_uri('images/cart.svg') ?>"></a></li>
+						<li><span class="items text-danger"><?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?></span><li>
 					</ul>
 				</div>
 			</div>
