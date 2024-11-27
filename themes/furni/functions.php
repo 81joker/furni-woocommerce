@@ -1,6 +1,7 @@
 <?php
 
 // require get_template_directory() . '/woocommerce/cart/cart.php';
+require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/wc-modifications.php';
 require get_template_directory() . '/inc/widgets.php';
 
@@ -83,52 +84,7 @@ add_action( 'after_setup_theme', 'furni_config', 0 );
 // add_action( 'init', 'furni_register_block_styles' );
 
 // add_action( 'widgets_init', 'furni_sidebars' );
-// function furni_sidebars(){
-//     register_sidebar(
-//         array(
-//             'name'  => esc_html__( 'Blog Sidebar', 'wp-devs' ),
-//             'id'    => 'sidebar-blog',
-//             'description'   => esc_html__( 'This is the Blog Sidebar. You can add your widgets here.', 'wp-devs' ),
-//             'before_widget' => '<div class="widget-wrapper">',
-//             'after_widget'  => '</div>',
-//             'before_title'  => '<h4 class="widget-title">',
-//             'after_title'   => '</h4>'
-//         )
-//     );
-//     register_sidebar(
-//         array(
-//             'name'  => esc_html__( 'Service 1', 'wp-devs' ),
-//             'id'    => 'services-1',
-//             'description'   => esc_html__( 'First Service Area', 'wp-devs' ),
-//             'before_widget' => '<div class="widget-wrapper">',
-//             'after_widget'  => '</div>',
-//             'before_title'  => '<h4 class="widget-title">',
-//             'after_title'   => '</h4>'
-//         )
-//     );
-//     register_sidebar(
-//         array(
-//             'name'  => esc_html__( 'Service 2', 'wp-devs' ),
-//             'id'    => 'services-2',
-//             'description'   => esc_html__( 'Second Service Area', 'wp-devs' ),
-//             'before_widget' => '<div class="widget-wrapper">',
-//             'after_widget'  => '</div>',
-//             'before_title'  => '<h4 class="widget-title">',
-//             'after_title'   => '</h4>'
-//         )
-//     );
-//     register_sidebar(
-//         array(
-//             'name'  => esc_html__( 'Service 3', 'wp-devs' ),
-//             'id'    => 'services-3',
-//             'description'   => esc_html__( 'Third Service Area', 'wp-devs' ),
-//             'before_widget' => '<div class="widget-wrapper">',
-//             'after_widget'  => '</div>',
-//             'before_title'  => '<h4 class="widget-title">',
-//             'after_title'   => '</h4>'
-//         )
-//     );
-// }
+
 
 if ( ! function_exists( 'wp_body_open' ) ){
 	function wp_body_open() {
