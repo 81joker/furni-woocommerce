@@ -18,7 +18,7 @@
 
 						</li>
 
-						<li class="nav-item <?php if (is_page('shop') || wp_get_post_parent_id(0) == 16) echo 'active'; ?>">
+						<li class="nav-item <?php if (is_shop() ) echo 'active'; ?>">
 							<a class="nav-link " href="<?php echo site_url('/shop'); ?>">
 								Shop
 							</a>

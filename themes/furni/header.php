@@ -10,6 +10,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
+ 
     <!-- Page Preloder -->
     <!-- <div id="preloder">
         <div class="loader"></div>
