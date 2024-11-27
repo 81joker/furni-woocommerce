@@ -4,7 +4,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 mx-auto text-center">
-                    <h2 class="section-title"><?php esc_html_e( 'Testimonials', 'furni' ) ?></h2>
+                    <?php
+                    $widget_data = get_option('widget_mv-testimonials');
+                    $widget_title = $widget_data[2]['title'];
+                    ?>
+                    <h2 class="section-title">
+                        <?php echo esc_html($widget_title ? $widget_title : __('Testimonials', 'furni')); ?>
+                    </h2>
                 </div>
             </div>
 
@@ -30,11 +36,9 @@
                             if ($testimonials->have_posts()):
                                 while ($testimonials->have_posts()):
                                     $testimonials->the_post();
-
-                                    $url_meta = get_post_meta(get_the_ID(), 'mv_testimonials_user_url', true);
+                                    // var_dump(  $testimonials->the_title());
                                     $occupation_meta = get_post_meta(get_the_ID(), 'mv_testimonials_occupation', true);
                                     $company_meta = get_post_meta(get_the_ID(), 'mv_testimonials_company', true);
-                                    // var_dump(the_title());
                             ?>
                                     <div class="item">
                                         <div class="row justify-content-center">
@@ -43,25 +47,24 @@
                                                 <div class="testimonial-block text-center">
                                                     <blockquote class="mb-5">
                                                         <p><?php the_content(); ?></p>
-                                                          </blockquote>
+                                                    </blockquote>
 
                                                     <div class="author-info">
                                                         <div class="author-pic">
                                                             <?php
                                                             if (has_post_thumbnail()) {
                                                                 the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive img-fluid', 'title' => 'Feature image']);                                                                // $thumbnail_id = get_post_thumbnail_id();
-                                                                // echo wp_get_attachment_image($thumbnail_id, 'full', false, array('class' => 'img-fluid'));
                                                             }
                                                             ?>
                                                         </div>
                                                         <h3 class="font-weight-bold"><?php the_title(); ?></h3>
                                                         <span class="position d-block mb-3">
-                                                        <?php if( $occupation ): ?>
-                <span class="occupation"><?php echo esc_html( $occupation_meta ); ?></span>,
-            <?php endif; ?>
-            <?php if( $company ): ?>
-                <span class="company"><a href="<?php echo esc_attr( $url_meta ) ?>"><?php echo esc_html( $company_meta ); ?></a></span>
-            <?php endif; ?> 
+                                                            <?php if ($occupation): ?>
+                                                                <span class="occupation"><?php echo esc_html($occupation_meta); ?></span>,
+                                                            <?php endif; ?>
+                                                            <?php if ($company): ?>
+                                                                <span class="company"><a href="<?php echo esc_attr($url_meta) ?>"><?php echo esc_html($company_meta); ?></a></span>
+                                                            <?php endif; ?>
                                                         </span>
                                                         <!-- <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span> -->
                                                     </div>

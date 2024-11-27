@@ -10,7 +10,7 @@ function furni_sidebars(){
             'description'   => esc_html__( 'This is the Blog Sidebar. You can add your widgets here.', 'furni' ),
             'before_widget' => '<div class="widget-wrapper">',
             'after_widget'  => '</div>',
-            'before_title'  => '<h4 class="widget-title">',
+            'before_title'  => '<h4 class="widget-title d-none">',
             'after_title'   => '</h4>'
         )
     );
