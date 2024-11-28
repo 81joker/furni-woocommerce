@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: About 
+ * Template Name: Blog 
  */
 ?>
 <?php get_header(); ?>
@@ -70,7 +70,6 @@ while(have_posts()) :
 		<!-- End Blog Section -->	
 
 		
-
 
 
 
