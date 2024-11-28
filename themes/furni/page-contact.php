@@ -51,8 +51,10 @@
                   </div> <!-- /.service -->
                 </div>
               </div>
+              <?php echo do_shortcode('[contact-form-7 id="f978127" title="Contact form 1"]'); ?>
 
-              <form>
+              
+              <!-- <form>
                 <div class="row">
                   <div class="col-6">
                     <div class="form-group">
@@ -78,7 +80,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
-              </form>
+              </form> -->
 
             </div>
 
