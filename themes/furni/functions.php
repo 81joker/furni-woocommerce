@@ -1,11 +1,14 @@
 <?php
 
 // require get_template_directory() . '/woocommerce/cart/cart.php';
+require get_template_directory() . '/inc/like-route.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/wc-modifications.php';
 require get_template_directory() . '/inc/widgets.php';
 
 function furni_load_scripts(){
+
+	wp_enqueue_script('furni-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
 
     wp_enqueue_style('furni-bootstrap', get_stylesheet_directory_uri() . "/css/bootstrap.min.css", null, 'all');
     wp_enqueue_style('furni-tiny-slider', get_stylesheet_directory_uri() . "/css/tiny-slider.css", null, 'all');

@@ -3,6 +3,7 @@ debug.log
 */debug.log
 /uploads/
 /upgrade/
+/themes/furni/node_modules
 /themes/pixelpoint
 /themes/furni-child
 /themes/fancy-lab
