@@ -1,6 +1,7 @@
 <?php
 
 // require get_template_directory() . '/woocommerce/cart/cart.php';
+require get_template_directory() . '/inc/like_status.php';
 require get_template_directory() . '/inc/like-route.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/wc-modifications.php';

@@ -69,3 +69,68 @@
     opacity: 0;
   }
   
+
+  /* like Navbar */
+  .wrap-like {
+    position: relative; 
+}
+
+/* .wrap-like .details-like {
+    background-color: #ddd;
+    border: 0.0625rem solid #f7f7f3;
+    padding: 2rem 1.5rem;
+    width: 28rem;
+    position: absolute;
+    top: 50px; 
+    right: 0;
+    display: none;
+    max-height: calc(100vh - 50px); 
+    overflow-y: auto; 
+    z-index: 1000; 
+}
+
+.wrap-like:hover .details-like {
+    display: block;
+}
+.wrap-like .details-like .card-price{
+    font-weight: 500;
+    letter-spacing: .025rem;
+    line-height: 1.5;
+} */
+.wrap-like .details-like {
+  cursor:pointer;
+  background-color: #f1f1f1f1;
+  border: 0.0625rem solid #f7f7f3;
+  padding: 2rem 1.5rem;
+  width: 28rem;
+  position: absolute;
+  top: 50px; 
+  right: 0;
+  display: block; /* Set to block for visibility management */
+  max-height: calc(100vh - 50px); /* Prevent overflow */
+  overflow-y: auto; 
+  z-index: 1000; 
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Adjust the duration as needed */
+}
+
+.wrap-like:hover .details-like {
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Fully visible */
+  opacity: 1;
+}
+.wrap-like .details-like  .card:hover {
+  background-color: rgb(55,65,81, .1);
+}
+
+.wrap-like .details-like .card-price {
+  font-weight: 500;
+  letter-spacing: .025rem;
+  line-height: 1.5;
+}
+
+li.count-number {
+  margin-left: -5px !important;
+  padding-right: 8px !important;
+}
