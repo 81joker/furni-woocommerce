@@ -9,6 +9,9 @@ require get_template_directory() . '/inc/widgets.php';
 function furni_load_scripts(){
 
 	wp_enqueue_script('furni-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
+	wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
 
     wp_enqueue_style('furni-bootstrap', get_stylesheet_directory_uri() . "/css/bootstrap.min.css", null, 'all');
     wp_enqueue_style('furni-tiny-slider', get_stylesheet_directory_uri() . "/css/tiny-slider.css", null, 'all');
@@ -20,6 +23,12 @@ function furni_load_scripts(){
     wp_enqueue_script("furni-custom-js", get_stylesheet_directory_uri() . "/js/custom.js", ["jquery"], null, true);
     // wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap', array(), null );
     // wp_enqueue_script( 'dropdown', get_template_directory_uri() . '/js/dropdown.js', array(), '1.0', true );
+
+
+	wp_localize_script('furni-js', 'furniData', array(
+		'root_url' => get_site_url(),
+		'nonce' => wp_create_nonce('wp_rest')
+	  ));
 }
 add_action( 'wp_enqueue_scripts', 'furni_load_scripts' );
 

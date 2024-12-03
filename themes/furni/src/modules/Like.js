@@ -21,12 +21,12 @@ class Like {
   }
 
   createLike(currentLikeBox) {
-    // alert("create test message")
+    //  alert("create test message")
     $.ajax({
       beforeSend: (xhr) => {
-        xhr.setRequestHeader("X-WP-Nonce", universityData.nonce);
+        xhr.setRequestHeader("X-WP-Nonce", furniData.nonce);
       },
-      url: universityData.root_url + "/wp-json/university/v1/manageLike",
+      url: furniData.root_url + "/wp-json/furni/v1/manageLike",
       type: "POST",
       data: { "professorId": currentLikeBox.data("professor") },
       success: response => {
@@ -46,9 +46,9 @@ class Like {
   deleteLike(currentLikeBox) {
     $.ajax({
       beforeSend: xhr => {
-        xhr.setRequestHeader("X-WP-Nonce", universityData.nonce)
+        xhr.setRequestHeader("X-WP-Nonce", furniData.nonce)
       },
-      url: universityData.root_url + "/wp-json/university/v1/manageLike",
+      url: furniData.root_url + "/wp-json/furni/v1/manageLike",
       data: { "like": currentLikeBox.attr("data-like") },
       type: "DELETE",
       success: response => {

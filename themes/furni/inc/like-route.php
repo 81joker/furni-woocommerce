@@ -15,7 +15,8 @@ function furniLikeRoutes() {
 }
 
 function createLike($data) {
-  if (is_user_logged_in()) {
+  if (get_current_user_id()) {
+  // if (is_user_logged_in()) {
     $professor = sanitize_text_field($data['professorId']);
 
     $existQuery = new WP_Query(array(
@@ -30,7 +31,7 @@ function createLike($data) {
       )
     ));
 
-    if ($existQuery->found_posts == 0 AND get_post_type($professor) == 'professor') {
+    if ($existQuery->found_posts == 0 AND get_post_type($professor) == 'product') {
      // wp_insert_post( $postarr:array, $wp_error:boolean, $fire_after_hooks:boolean )
      return wp_insert_post(array(
         'post_type' => 'like',
