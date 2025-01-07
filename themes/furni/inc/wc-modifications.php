@@ -5,14 +5,16 @@
  *
  * @link https://docs.woocommerce.com/document/woocommerce-theme-developer-handbook/#section-3
  *
- * @package Fancy Lab
+ * @package Furni
  */
 
-add_action('wp', 'fancy_lab_wc_modify');
+add_action('wp', 'furni_wc_modify');
 
-if (! function_exists('fancy_lab_wc_modify')) :
-	function fancy_lab_wc_modify()
+if (! function_exists('furni_wc_modify')) :
+	function furni_wc_modify()
 	{
+		// remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+
 		/********* St Rmove the products columns-1 before col products ********/
 		add_filter('woocommerce_product_loop_start', 'custom_woocommerce_product_loop_start');
 		add_filter('woocommerce_product_loop_end', 'custom_woocommerce_product_loop_end');

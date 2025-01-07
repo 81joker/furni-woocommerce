@@ -18,6 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 class Like {
   constructor() {
     this.events();
+    this.isSpinnerVisible = false;
   }
   events() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(".like-box").on("click", this.ourClickDispatcher.bind(this));
@@ -25,7 +26,6 @@ class Like {
   ourClickDispatcher(e) {
     var currentLikeBox = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest(".like-box");
     // console.log(currentLikeBox.data("professor"));
-
     if (currentLikeBox.data("exists") == "yes") {
       this.deleteLike(currentLikeBox);
     } else {
@@ -46,8 +46,14 @@ class Like {
       success: response => {
         currentLikeBox.attr("data-exists", "yes");
         var likeCount = parseInt(currentLikeBox.find(".like-count").html(), 10);
+        const alertTest = '<div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>';
         likeCount++;
         currentLikeBox.find(".like-count").html(likeCount);
+        // Todo Spinner on Click yes or not
+        // if (!this.isSpinnerVisible) {
+        //   currentLikeBox.find(".like-count").html(alertTest)
+        //   this.isSpinnerVisible = true;
+        // }
         currentLikeBox.attr("data-like", response);
         console.log(response);
       },
@@ -72,7 +78,7 @@ class Like {
         likeCount--;
         currentLikeBox.find(".like-count").html(likeCount);
         currentLikeBox.attr("data-like", "");
-        console.log(response);
+        // console.log(response )
       },
       error: response => {
         console.log(response);

@@ -134,3 +134,7 @@ li.count-number {
   margin-left: -5px !important;
   padding-right: 8px !important;
 }
+
+.woocommerce .woocommerce-breadcrumb{
+  padding-top: 1rem;
+}
